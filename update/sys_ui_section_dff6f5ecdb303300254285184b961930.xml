@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section caption="fffv" section_id="dff6f5ecdb303300254285184b961930" sys_domain="global" table="sc_cat_item_category" version="3" view="">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>sc_category</element>
+            <position>0</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2019-04-10 19:31:43</sys_created_on>
+            <sys_id>e21771ecdb303300254285184b9619d9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="fffv" display_value="fffv" name="sc_cat_item_category" sys_domain="global" view="Default view">dff6f5ecdb303300254285184b961930</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2019-04-10 19:31:43</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>sc_cat_item</element>
+            <position>1</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2019-04-10 19:31:43</sys_created_on>
+            <sys_id>2e1771ecdb303300254285184b9619d9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="fffv" display_value="fffv" name="sc_cat_item_category" sys_domain="global" view="Default view">dff6f5ecdb303300254285184b961930</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2019-04-10 19:31:43</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption>fffv</caption>
+            <header>false</header>
+            <name>sc_cat_item_category</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2019-04-10 19:31:13</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>dff6f5ecdb303300254285184b961930</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>fffv</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="appTest" source="x_181622_apptest">e18088d2db203300254285184b9619b5</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="appTest">e18088d2db203300254285184b9619b5</sys_scope>
+            <sys_update_name>sys_ui_section_dff6f5ecdb303300254285184b961930</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2019-04-10 19:31:13</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>
