@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element label="demo" max_length="40" name="x_181622_apptest_demo" type="collection">
         <element choice="1" label="appNameList" max_length="45" name="appnamelist" type="string">
-            <choice/>
+            <choice>
+                <element inactive_on_update="false" label="Petclinic" value="PetclinicV1"/>
+            </choice>
         </element>
         <element label="appVersion" max_length="10" name="appversion" type="integer"/>
     </element>
