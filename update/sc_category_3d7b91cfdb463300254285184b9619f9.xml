@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_category">
+    <sc_category action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description>Create Development environment and deploy the app (using Packer and Terraform module)</description>
+        <entitlement_script/>
+        <header_icon/>
+        <homepage_image>25f67deedb163300254285184b9619b3</homepage_image>
+        <homepage_renderer display_value="Category Items">47ebe8aa3742300054b6a3549dbe5dfa</homepage_renderer>
+        <icon/>
+        <image/>
+        <location/>
+        <mobile_hide_description>false</mobile_hide_description>
+        <mobile_picture/>
+        <mobile_subcategory_render_type>list</mobile_subcategory_render_type>
+        <module/>
+        <order>0</order>
+        <parent display_value="Services">109f0438c6112276003ae8ac13e7009d</parent>
+        <roles/>
+        <sc_catalog display_value="Service Catalog">e0d08b13c3330100c8b837659bba8fb4</sc_catalog>
+        <show_in_cms>false</show_in_cms>
+        <sys_class_name>sc_category</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-06-19 15:14:47</sys_created_on>
+        <sys_id>3d7b91cfdb463300254285184b9619f9</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>EFS - Create Dev Env and deploy App (Packer-Terraform)</sys_name>
+        <sys_package display_value="appTest" source="x_181622_apptest">e18088d2db203300254285184b9619b5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="appTest">e18088d2db203300254285184b9619b5</sys_scope>
+        <sys_update_name>sc_category_3d7b91cfdb463300254285184b9619f9</sys_update_name>
+        <sys_updated_by>sripathi.ks</sys_updated_by>
+        <sys_updated_on>2019-06-30 14:14:10</sys_updated_on>
+        <title>EFS - Create Dev Env and deploy App (Packer-Terraform)</title>
+    </sc_category>
+    <sys_translated_text action="delete_multiple" query="documentkey=3d7b91cfdb463300254285184b9619f9"/>
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color>#904e61</average_image_color>
+        <chunk_size_bytes>734003</chunk_size_bytes>
+        <compressed>true</compressed>
+        <content_type>image/png</content_type>
+        <file_name>homepage_image</file_name>
+        <image_height>28</image_height>
+        <image_width>85</image_width>
+        <size_bytes>2228</size_bytes>
+        <size_compressed>2251</size_compressed>
+        <state/>
+        <sys_created_by>sripathi.ks</sys_created_by>
+        <sys_created_on>2019-06-30 14:13:08</sys_created_on>
+        <sys_id>25f67deedb163300254285184b9619b3</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>sripathi.ks</sys_updated_by>
+        <sys_updated_on>2019-06-30 14:13:09</sys_updated_on>
+        <table_name>ZZ_YYsc_category</table_name>
+        <table_sys_id>3d7b91cfdb463300254285184b9619f9</table_sys_id>
+    </sys_attachment>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>H4sIAAAAAAAAAA==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="homepage_image" sys_id="25f67deedb163300254285184b9619b3">25f67deedb163300254285184b9619b3</sys_attachment>
+        <sys_created_by>sripathi.ks</sys_created_by>
+        <sys_created_on>2019-06-30 14:13:08</sys_created_on>
+        <sys_id>65f67deedb163300254285184b9619b3</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>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</data>
+        <length>2988</length>
+        <position>1</position>
+        <sys_attachment display_value="homepage_image" sys_id="25f67deedb163300254285184b9619b3">25f67deedb163300254285184b9619b3</sys_attachment>
+        <sys_created_by>sripathi.ks</sys_created_by>
+        <sys_created_on>2019-06-30 14:13:08</sys_created_on>
+        <sys_id>e5f67deedb163300254285184b9619b3</sys_id>
+    </sys_attachment_doc>
+</record_update>

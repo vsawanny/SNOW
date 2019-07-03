@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
+    <sys_cb_topic action="INSERT_OR_UPDATE">
+        <applicability/>
+        <connect_queue/>
+        <description>ITSM conversation for searching catalog items</description>
+        <graph>{
+  "goals": {
+    "972516638cea4bd48e0ac089b757b5ac": {
+      "id": "972516638cea4bd48e0ac089b757b5ac",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "Catalog Item Search",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "af2b79291d7e4e3199ed0a7597d7976d": {
+          "id": "af2b79291d7e4e3199ed0a7597d7976d",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "3d0b315026b646668eee4940e703ff60": {
+          "id": "3d0b315026b646668eee4940e703ff60",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "c3bdf8ed749f4d12ba5223b1c7edb893": {
+          "stepType": "CarouselPrompt",
+          "name": "Catalog Item",
+          "prompt": {
+            "value": "",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": "",
+          "optional": false,
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "a069943457c7489db1f78b89a61aa86b",
+          "id": "c3bdf8ed749f4d12ba5223b1c7edb893",
+          "carouselLabel": {
+            "value": "Here’s what I have available.  You'll have a chance to confirm or cancel the order next.",
+            "mode": "simple"
+          },
+          "carouselItemExpression": "(function execute() {\n    var results = JSON.parse(vaVars.results);\n    var baseURL = gs.getProperty('glide.servlet.uri');\n    var options = [];\n    for (var i=0; i&lt; results.length; i++) {\n        options.push(\n            {\n                'Name': results[i].title,\n                'Value': i + '',\n                'Body': baseURL + '/' + results[i].image\n            }\n        );\n    }\n    return options;\n})()\n",
+          "noRecordsResponseMsg": {
+            "mode": "simple",
+            "value": "No Records Found"
+          },
+          "isOk": true
+        },
+        "11c60dbd9c22416f9a40b05ea67836f3": {
+          "id": "11c60dbd9c22416f9a40b05ea67836f3",
+          "stepType": "Prompt",
+          "name": "Search Term",
+          "prompt": {
+            "value": "Please enter a short description of what you're looking for.",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": "",
+          "optional": false,
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "0932e11b9a1943a3928623e096f2e137"
+        },
+        "f61430f846ee4be5a7cd5485789a7be1": {
+          "id": "f61430f846ee4be5a7cd5485789a7be1",
+          "name": "Contextual Search",
+          "script": "(function execute() {\n    var search_term = vaInputs.search_term;\n    var context = '6f7e3f565b30130070e4492c11f91aea';\n\n    var contextualSearch = new sn_itsm_va.VAContextualSearchUtil();\n    var response = contextualSearch.search(context, search_term);\n\n    var success = contextualSearch.processSearchResponse(response);\n    if (!success) {\n        vaVars.count = 0;\n        return '';\n    }\n\n    //Filter out any catalog items that should not be shown ie. Record Producers\n    //create a filterMap to quickly see if item can be shown to user\n    var filter_tables = vaVars.filter_tables.split(',');\n    var filterMap = {};\n    for (var i=0; i &lt; filter_tables.length; i++) {\n        filterMap[filter_tables[i]] = 'true';\n    }\n\n    var searchResults = response.results;\n    var results = [];\n    var count = 0;\n    for (var index=0; index &lt; searchResults.length &amp;&amp; count &lt; parseInt(vaVars.limit); index++) {\n        //Get sys_id of search result\n        var sys_id = searchResults[index].id.split(':')[1];\n        //Lookup item to find the tableName\n        var gr = new GlideRecord('sc_cat_item');\n        if (gr.get(sys_id)) {\n            var tableName = gr.getValue('sys_class_name');\n            //if the tableName is not found in filterMap, we can show it to user\n            if (filterMap[tableName] == undefined) {\n                results.push({\n                    'sys_id': sys_id,\n                    'title': searchResults[index].title,\n                    'image': searchResults[index].image.link\n                });\n                count++;\n            }\n        }\n    }\n\n    vaVars.count = results.length;\n    vaVars.results = JSON.stringify(results);\n\n    return '';\n})()\n",
+          "stepType": "ScriptAction",
+          "applicability": "",
+          "isOk": true
+        },
+        "9a4e11efa7984f63b0b0a0b7b5bb4071": {
+          "id": "9a4e11efa7984f63b0b0a0b7b5bb4071",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "d06f521b3a3b46a5a47cb5c4b54dd117": {
+          "id": "d06f521b3a3b46a5a47cb5c4b54dd117",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "2ba0e4e7081041249c1daa62a34389f7": {
+          "id": "2ba0e4e7081041249c1daa62a34389f7",
+          "stepType": "ImageOutput",
+          "name": "Item Image",
+          "url": {
+            "value": "(function execute() {\n    var results = JSON.parse(vaVars.results);\n    var baseURL = gs.getProperty('glide.servlet.uri');\n    return baseURL + '/' + results[0].image;\n})()\n",
+            "mode": "script"
+          },
+          "variableId": "",
+          "applicability": "",
+          "isOk": true
+        },
+        "51aa203022eb44b38a403f33c2d1a9b4": {
+          "id": "51aa203022eb44b38a403f33c2d1a9b4",
+          "name": "Set Selected Item",
+          "script": "(function execute() {\n    var results = JSON.parse(vaVars.results);\n    var index = 0;\n    if (parseInt(vaVars.count) &gt; 1) {\n        index = parseInt(vaInputs.catalog_item);\n    }\n    vaVars.selected_title = results[index].title;\n    vaVars.selected_link = gs.getProperty('sn_itsm_va.com.snc.itsm.virtualagent.portal_url') + \n        '?id=sc_cat_item&amp;sys_id=' + results[index].sys_id;\n    return '';\n})()\n",
+          "stepType": "ScriptAction",
+          "applicability": "",
+          "isOk": true
+        },
+        "302f11f68458474f9812b4d8ef24ff54": {
+          "id": "302f11f68458474f9812b4d8ef24ff54",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "618400476c10416daa078c2093271179": {
+          "id": "618400476c10416daa078c2093271179",
+          "stepType": "TextOutput",
+          "name": "No Items Found",
+          "value": {
+            "value": "Sorry, but I couldn’t find any relevant items.",
+            "mode": "simple"
+          },
+          "applicability": ""
+        },
+        "4589faeb7ea84c8eb4560ace147cfb24": {
+          "id": "4589faeb7ea84c8eb4560ace147cfb24",
+          "stepType": "Prompt",
+          "name": "Search Again",
+          "prompt": {
+            "value": "Would you like to search for something else?",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": "",
+          "optional": false,
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "480bdf3467664dd8b645b5fd42e25e07",
+          "isOk": true
+        },
+        "6305cb6bb55b49328be00d80777b6e30": {
+          "id": "6305cb6bb55b49328be00d80777b6e30",
+          "stepType": "LinkOutput",
+          "name": "Link Output",
+          "url": {
+            "value": "(function execute() {\n    return gs.getProperty('glide.servlet.uri') + '/' + vaVars.selected_link;\n})()\n",
+            "mode": "script"
+          },
+          "label": {
+            "value": "Create your Change Here .",
+            "mode": "simple"
+          },
+          "header": {
+            "value": "(function execute() {\n    if (parseInt(vaVars.count) == 1)\n        return gs.getMessage('The only item I found is {0}.', vaVars.selected_title);\n\n    return question = gs.getMessage('OK, you chose {0}.', vaVars.selected_title);\n})()\n",
+            "mode": "script"
+          },
+          "applicability": "",
+          "isOk": true
+        },
+        "bfb3e6976cce4d3d8f28c41baf172329": {
+          "id": "bfb3e6976cce4d3d8f28c41baf172329",
+          "stepType": "TextOutput",
+          "name": "Acknowledgement",
+          "value": {
+            "value": "Thanks for using our support chat! Have a great day!",
+            "mode": "simple"
+          },
+          "applicability": "",
+          "isOk": true
+        }
+      },
+      "edges": [
+        {
+          "id": "73a588db123843e7a66e62133a829da6",
+          "edgeType": "Edge",
+          "source": "618400476c10416daa078c2093271179",
+          "target": "4589faeb7ea84c8eb4560ace147cfb24",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "42efccc1a74d4589b9502abaf67efa32",
+          "edgeType": "Branch",
+          "source": "d06f521b3a3b46a5a47cb5c4b54dd117",
+          "target": "11c60dbd9c22416f9a40b05ea67836f3",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": "(function execute() {\n    return vaInputs.search_again.getValue();\n})()\n",
+          "label": "Try Again"
+        },
+        {
+          "id": "964c42d569cf479e9a3d7c269af88abd",
+          "edgeType": "Edge",
+          "source": "c3bdf8ed749f4d12ba5223b1c7edb893",
+          "target": "51aa203022eb44b38a403f33c2d1a9b4",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "1fe20034f3ad4666bd9640470b1caede",
+          "edgeType": "Edge",
+          "source": "af2b79291d7e4e3199ed0a7597d7976d",
+          "target": "11c60dbd9c22416f9a40b05ea67836f3",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "8b9e5f2182c941a294dc7f21ff5a4bda",
+          "edgeType": "Edge",
+          "source": "11c60dbd9c22416f9a40b05ea67836f3",
+          "target": "f61430f846ee4be5a7cd5485789a7be1",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "83e1fbc6a5b0487481b90690ec1de418",
+          "edgeType": "Edge",
+          "source": "f61430f846ee4be5a7cd5485789a7be1",
+          "target": "9a4e11efa7984f63b0b0a0b7b5bb4071",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "a5c39f90adb64c7d817ca3aa5da6fc5a",
+          "edgeType": "Branch",
+          "source": "9a4e11efa7984f63b0b0a0b7b5bb4071",
+          "target": "c3bdf8ed749f4d12ba5223b1c7edb893",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": "(function execute() {\n    return parseInt(vaVars.count) &gt; 1;\n})()\n",
+          "label": "More than One Item"
+        },
+        {
+          "id": "467585e6c2ec442a9a7d545d02f41590",
+          "edgeType": "Edge",
+          "source": "2ba0e4e7081041249c1daa62a34389f7",
+          "target": "51aa203022eb44b38a403f33c2d1a9b4",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "b86b4b5f79ff494785b22bf75747f0ef",
+          "edgeType": "Branch",
+          "source": "9a4e11efa7984f63b0b0a0b7b5bb4071",
+          "target": "302f11f68458474f9812b4d8ef24ff54",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": "(function execute() {\n    return parseInt(vaVars.count) == 1;\n})()\n",
+          "label": "Only One Item"
+        },
+        {
+          "id": "cc3389a38ba649aa8d2bdac607961458",
+          "edgeType": "Branch",
+          "source": "302f11f68458474f9812b4d8ef24ff54",
+          "target": "2ba0e4e7081041249c1daa62a34389f7",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": "(function execute() {\n    var results = JSON.parse(vaVars.results);\n    return (results[0].image != '');\n})()\n",
+          "label": "Image Exists"
+        },
+        {
+          "id": "98a6cc53b12d4944ac431a7e7b0595e4",
+          "edgeType": "Branch",
+          "source": "302f11f68458474f9812b4d8ef24ff54",
+          "target": "51aa203022eb44b38a403f33c2d1a9b4",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": "(function execute() {\n    var results = JSON.parse(vaVars.results);\n    return (results[0].image == '');\n})()\n",
+          "label": "No Image"
+        },
+        {
+          "id": "80a48efa986742868f6c1123b3f6366d",
+          "edgeType": "Branch",
+          "source": "9a4e11efa7984f63b0b0a0b7b5bb4071",
+          "target": "618400476c10416daa078c2093271179",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": "(function execute() {\n    return parseInt(vaVars.count) == 0;\n})()\n",
+          "label": "No Items Exist"
+        },
+        {
+          "id": "f560a7052b3b42958856ace87948cf76",
+          "edgeType": "Edge",
+          "source": "4589faeb7ea84c8eb4560ace147cfb24",
+          "target": "d06f521b3a3b46a5a47cb5c4b54dd117",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "a1cf5ee749aa4444a247dd22a21f28a2",
+          "edgeType": "Edge",
+          "source": "51aa203022eb44b38a403f33c2d1a9b4",
+          "target": "6305cb6bb55b49328be00d80777b6e30",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "be0551567a2d4e539d89c4ea546572e1",
+          "edgeType": "Edge",
+          "source": "6305cb6bb55b49328be00d80777b6e30",
+          "target": "4589faeb7ea84c8eb4560ace147cfb24",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "5c5221f2d3734ff392e66e8a08df13cb",
+          "edgeType": "Branch",
+          "source": "d06f521b3a3b46a5a47cb5c4b54dd117",
+          "target": "bfb3e6976cce4d3d8f28c41baf172329",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": "(function execute() {\n    return !vaInputs.search_again.getValue();\n})()\n",
+          "label": "Cancel"
+        },
+        {
+          "id": "5efd8c9b19104167bb9334967692fd91",
+          "edgeType": "Edge",
+          "source": "bfb3e6976cce4d3d8f28c41baf172329",
+          "target": "3d0b315026b646668eee4940e703ff60",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "graph_api_version": "1.0.3",
+  "variables": {
+    "a069943457c7489db1f78b89a61aa86b": {
+      "id": "a069943457c7489db1f78b89a61aa86b",
+      "name": "catalog_item",
+      "label": "Carousel 5",
+      "varType": "carousel-image"
+    },
+    "0932e11b9a1943a3928623e096f2e137": {
+      "id": "0932e11b9a1943a3928623e096f2e137",
+      "name": "search_term",
+      "label": "Search Term",
+      "varType": "string"
+    },
+    "64485cf493034c399d4d82b5a6530597": {
+      "id": "64485cf493034c399d4d82b5a6530597",
+      "name": "limit",
+      "label": "limit",
+      "varType": "script",
+      "value": {
+        "value": "5",
+        "mode": "simple"
+      }
+    },
+    "ec7277d5e19c47d596b739393fd82f6c": {
+      "id": "ec7277d5e19c47d596b739393fd82f6c",
+      "name": "count",
+      "label": "count",
+      "varType": "script",
+      "value": {
+        "value": "0",
+        "mode": "simple"
+      }
+    },
+    "998226d03b484eb18e03844494714741": {
+      "id": "998226d03b484eb18e03844494714741",
+      "name": "results",
+      "label": "results",
+      "varType": "script"
+    },
+    "1df377d1a7744644a4c64818672e1c35": {
+      "id": "1df377d1a7744644a4c64818672e1c35",
+      "name": "selected_title",
+      "label": "selected_title",
+      "varType": "script"
+    },
+    "682dc53a101146edae54bc6cbd2a5b11": {
+      "id": "682dc53a101146edae54bc6cbd2a5b11",
+      "name": "selected_link",
+      "label": "selected_link",
+      "varType": "script"
+    },
+    "480bdf3467664dd8b645b5fd42e25e07": {
+      "id": "480bdf3467664dd8b645b5fd42e25e07",
+      "name": "search_again",
+      "label": "Search Again",
+      "varType": "boolean"
+    },
+    "dc44bde7d6e64a7790a48cd6f25d4516": {
+      "id": "dc44bde7d6e64a7790a48cd6f25d4516",
+      "value": {
+        "mode": "simple",
+        "value": "sc_cat_item_content,sc_cat_item_producer,sc_cat_item_wizard,std_change_record_producer,sc_cat_item_producer_service"
+      },
+      "name": "filter_tables",
+      "label": "filter_tables",
+      "varType": "script"
+    },
+    "95769c885de74002ab2016f3637dc990": {
+      "id": "95769c885de74002ab2016f3637dc990",
+      "name": "LiveAgent_application",
+      "value": {
+        "mode": "simple",
+        "value": "itsm"
+      },
+      "varType": "script",
+      "label": "LiveAgent_application"
+    }
+  }
+}</graph>
+        <key_phrases>request,buy,item,catalog,purchase,order,computer,phone,need,require</key_phrases>
+        <live_agent>false</live_agent>
+        <name>Order HCL Item</name>
+        <roles/>
+        <sys_class_name>sys_cb_topic</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-06-25 10:06:58</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>7eae4f70db5a7300254285184b9619d7</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Order HCL Item</sys_name>
+        <sys_package display_value="appTest" source="x_181622_apptest">e18088d2db203300254285184b9619b5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="appTest">e18088d2db203300254285184b9619b5</sys_scope>
+        <sys_update_name>sys_cb_topic_7eae4f70db5a7300254285184b9619d7</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-06-25 10:07:24</sys_updated_on>
+        <variables/>
+    </sys_cb_topic>
+    <sys_variable_value action="delete_multiple" query="document_key=7eae4f70db5a7300254285184b9619d7"/>
+</record_update>

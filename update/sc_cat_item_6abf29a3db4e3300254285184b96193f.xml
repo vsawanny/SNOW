@@ -3,18 +3,18 @@
         <active>true</active>
         <availability>on_desktop</availability>
         <billable>false</billable>
-        <category display_value="AppDemo">0718e924db303300254285184b961993</category>
+        <category display_value="EFS- Create Test Env and Deploy app in PCF">6dad21efdb0e3300254285184b961939</category>
         <cost>0</cost>
         <custom_cart/>
-        <delivery_plan display_value="DEFAULT">523da512c611228900811a37c97c2014</delivery_plan>
+        <delivery_plan/>
         <delivery_plan_script/>
         <delivery_time>1970-01-03 00:00:00</delivery_time>
-        <description/>
+        <description><![CDATA[<ul style="list-style-position: inside;"><li>Create Test namespace on demand using Jenkins job</li><li>Deploy microservice application on new namespace created</li></ul>]]></description>
         <entitlement_script/>
         <group/>
         <hide_sp>false</hide_sp>
         <icon/>
-        <ignore_price>true</ignore_price>
+        <ignore_price>false</ignore_price>
         <image/>
         <list_price>0</list_price>
         <location/>
@@ -23,7 +23,7 @@
         <mobile_picture/>
         <mobile_picture_type>use_desktop_picture</mobile_picture_type>
         <model/>
-        <name>test</name>
+        <name>EFS- Create Test Env and Deploy app in PCF</name>
         <no_cart>false</no_cart>
         <no_order>false</no_order>
         <no_order_now>false</no_order_now>
@@ -34,29 +34,29 @@
         <order>0</order>
         <ordered_item_link/>
         <picture/>
-        <preview>JavaScript: popupOpenStandard("com.glideapp.servicecatalog_cat_item_view.do?v=1&amp;sysparm_id=6f9935e0db703300254285184b9619d9&amp;sysparm_preview=true", "summary");</preview>
-        <price>0</price>
-        <recurring_frequency/>
-        <recurring_price>0</recurring_price>
+        <preview>JavaScript: popupOpenStandard("com.glideapp.servicecatalog_cat_item_view.do?v=1&amp;sysparm_id=6abf29a3db4e3300254285184b96193f&amp;sysparm_preview=true", "summary");</preview>
+        <price>20</price>
+        <recurring_frequency>monthly</recurring_frequency>
+        <recurring_price>20</recurring_price>
         <roles>snc_internal</roles>
         <sc_catalogs>e0d08b13c3330100c8b837659bba8fb4</sc_catalogs>
         <sc_ic_item_staging/>
         <sc_ic_version/>
-        <short_description>Deploy/Promote application into different environments</short_description>
+        <short_description>Request to create Test namespace and deploy app in PCF</short_description>
         <show_variable_help_on_load>false</show_variable_help_on_load>
         <start_closed>false</start_closed>
         <sys_class_name>sc_cat_item</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2019-04-10 19:43:32</sys_created_on>
-        <sys_id>6f9935e0db703300254285184b9619d9</sys_id>
-        <sys_mod_count>2</sys_mod_count>
-        <sys_name>test</sys_name>
+        <sys_created_on>2019-06-21 06:05:08</sys_created_on>
+        <sys_id>6abf29a3db4e3300254285184b96193f</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>EFS- Create Test Env and Deploy app in PCF</sys_name>
         <sys_package display_value="appTest" source="x_181622_apptest">e18088d2db203300254285184b9619b5</sys_package>
         <sys_policy/>
         <sys_scope display_value="appTest">e18088d2db203300254285184b9619b5</sys_scope>
-        <sys_update_name>sc_cat_item_6f9935e0db703300254285184b9619d9</sys_update_name>
-        <sys_updated_by>system</sys_updated_by>
-        <sys_updated_on>2019-06-21 06:56:02</sys_updated_on>
+        <sys_update_name>sc_cat_item_6abf29a3db4e3300254285184b96193f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-06-30 14:36:23</sys_updated_on>
         <template/>
         <type>item</type>
         <use_sc_layout>true</use_sc_layout>
@@ -64,41 +64,41 @@
         <visible_bundle>true</visible_bundle>
         <visible_guide>true</visible_guide>
         <visible_standalone>true</visible_standalone>
-        <workflow/>
+        <workflow display_value="Jenkins_PCF_Dynamic">6c00312fdbc63300254285184b9619bd</workflow>
     </sc_cat_item>
-    <sys_translated_text action="delete_multiple" query="documentkey=6f9935e0db703300254285184b9619d9"/>
-    <fx_price action="delete_multiple" query="id=6f9935e0db703300254285184b9619d9"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=6abf29a3db4e3300254285184b96193f"/>
+    <fx_price action="delete_multiple" query="id=6abf29a3db4e3300254285184b96193f"/>
     <fx_price action="INSERT_OR_UPDATE">
-        <amount>0</amount>
-        <currency display_value="INR">INR</currency>
+        <amount>20</amount>
+        <currency display_value="USD">USD</currency>
         <field>price</field>
-        <id>6f9935e0db703300254285184b9619d9</id>
+        <id>6abf29a3db4e3300254285184b96193f</id>
         <parent/>
-        <reference_amount>0</reference_amount>
+        <reference_amount>20</reference_amount>
         <reference_currency display_value="USD">USD</reference_currency>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2019-04-10 19:43:33</sys_created_on>
-        <sys_id>63c9f1a0db703300254285184b96194a</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_created_on>2019-06-21 06:05:08</sys_created_on>
+        <sys_id>51f0b9e3db4e3300254285184b9619d7</sys_id>
+        <sys_mod_count>1</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2019-04-10 19:43:33</sys_updated_on>
+        <sys_updated_on>2019-06-30 14:36:23</sys_updated_on>
         <table>sc_cat_item</table>
         <type>calculated</type>
     </fx_price>
     <fx_price action="INSERT_OR_UPDATE">
-        <amount>0</amount>
+        <amount>20</amount>
         <currency display_value="USD">USD</currency>
         <field>recurring_price</field>
-        <id>6f9935e0db703300254285184b9619d9</id>
+        <id>6abf29a3db4e3300254285184b96193f</id>
         <parent/>
-        <reference_amount>0</reference_amount>
+        <reference_amount>20</reference_amount>
         <reference_currency display_value="USD">USD</reference_currency>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2019-04-10 19:43:33</sys_created_on>
-        <sys_id>b7c9f1a0db703300254285184b96194b</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_created_on>2019-06-21 06:05:08</sys_created_on>
+        <sys_id>11f0b9e3db4e3300254285184b9619d8</sys_id>
+        <sys_mod_count>1</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2019-04-10 19:43:33</sys_updated_on>
+        <sys_updated_on>2019-06-30 14:36:23</sys_updated_on>
         <table>sc_cat_item</table>
         <type>calculated</type>
     </fx_price>

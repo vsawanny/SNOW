@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
+    <sys_cb_topic action="INSERT_OR_UPDATE">
+        <applicability/>
+        <connect_queue/>
+        <description>Dev env deployment using cloud formation</description>
+        <graph>{
+  "graph_api_version": "1.0.3",
+  "goals": {
+    "0085efe6156647888f645a6d2e9d14ff": {
+      "id": "0085efe6156647888f645a6d2e9d14ff",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "077f48fef4fe4a209e89cae62f2b3632": {
+          "id": "077f48fef4fe4a209e89cae62f2b3632",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "266afdf728434af0a49ff41c9b28d4a8": {
+          "id": "266afdf728434af0a49ff41c9b28d4a8",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "eeedf6c43f17422097d6cb8bfeee9a43": {
+          "id": "eeedf6c43f17422097d6cb8bfeee9a43",
+          "stepType": "TextOutput",
+          "name": "confirmation",
+          "value": {
+            "value": "Do you want to deploy application to Dev env using cloud formation",
+            "mode": "simple"
+          },
+          "applicability": ""
+        },
+        "cf376af706504cfd90640bc50e36a95b": {
+          "stepType": "ChoicePrompt",
+          "name": "confirmationrequest",
+          "prompt": {
+            "value": "Do you want to deploy application to Dev env using cloud formation",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "yes",
+            "mode": "simple"
+          },
+          "applicability": "",
+          "optional": false,
+          "defaultValue": {
+            "value": "yes",
+            "mode": "simple"
+          },
+          "variableId": "9a6b7b12c35840b3b4a6c26ac41b87e4",
+          "id": "cf376af706504cfd90640bc50e36a95b"
+        },
+        "650b815aabb54c8cad2b1b099daf9b85": {
+          "id": "650b815aabb54c8cad2b1b099daf9b85",
+          "stepType": "CrudAction",
+          "name": "create ticket",
+          "template": "sys_created_on=^EQ",
+          "mode": "create",
+          "record": "",
+          "applicability": "",
+          "variableId": "cce7375afdbd4b7baed2d9453e69697a"
+        }
+      },
+      "edges": [
+        {
+          "id": "fd2c5eb640664efab8275900c5743f0d",
+          "edgeType": "Edge",
+          "source": "077f48fef4fe4a209e89cae62f2b3632",
+          "target": "eeedf6c43f17422097d6cb8bfeee9a43",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "ff2ed066b7dc44c4b0e20456471be349",
+          "edgeType": "Edge",
+          "source": "eeedf6c43f17422097d6cb8bfeee9a43",
+          "target": "cf376af706504cfd90640bc50e36a95b",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "0ee1380474fd4d45beff04d74f471409",
+          "edgeType": "Edge",
+          "source": "cf376af706504cfd90640bc50e36a95b",
+          "target": "650b815aabb54c8cad2b1b099daf9b85",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "45bc1dbde69f467e8afb59f1be63555a",
+          "edgeType": "Edge",
+          "source": "650b815aabb54c8cad2b1b099daf9b85",
+          "target": "266afdf728434af0a49ff41c9b28d4a8",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "28015f69d36948c4987215d388462566": {
+      "id": "28015f69d36948c4987215d388462566",
+      "name": "LiveAgent_global_queue",
+      "value": {
+        "mode": "simple",
+        "value": "f4d701b1b3900300f7d1a13816a8dc8e"
+      },
+      "varType": "script"
+    },
+    "3027df7ac1944ef48f154f0e1027f6c9": {
+      "id": "3027df7ac1944ef48f154f0e1027f6c9",
+      "name": "LiveAgent_case",
+      "value": {
+        "mode": "simple",
+        "value": ""
+      },
+      "varType": "script"
+    },
+    "48672817a3e04cf1b3ee5cba4570470a": {
+      "id": "48672817a3e04cf1b3ee5cba4570470a",
+      "name": "LiveAgent_short_description",
+      "value": {
+        "mode": "simple",
+        "value": ""
+      },
+      "varType": "script"
+    },
+    "0a8ac4b1f91e4116be4fa75fa94d06a6": {
+      "id": "0a8ac4b1f91e4116be4fa75fa94d06a6",
+      "name": "LiveAgent_application",
+      "value": {
+        "mode": "simple",
+        "value": ""
+      },
+      "varType": "script"
+    },
+    "9a6b7b12c35840b3b4a6c26ac41b87e4": {
+      "id": "9a6b7b12c35840b3b4a6c26ac41b87e4",
+      "name": "confirmationrequest",
+      "label": "Confirmationrequest",
+      "varType": "choice",
+      "choices": [
+        {
+          "label": "Yes",
+          "value": "yes"
+        },
+        {
+          "label": "No",
+          "value": "no"
+        }
+      ]
+    },
+    "cce7375afdbd4b7baed2d9453e69697a": {
+      "id": "cce7375afdbd4b7baed2d9453e69697a",
+      "name": "create_ticket",
+      "label": "create_ticket",
+      "varType": "reference",
+      "table": "sc_request",
+      "inactive": false
+    }
+  }
+}</graph>
+        <key_phrases>Dev Env on AWS,aws,Dev env,Cloud formation</key_phrases>
+        <live_agent>false</live_agent>
+        <name>Dev Env on AWS</name>
+        <roles/>
+        <sys_class_name>sys_cb_topic</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-06-24 11:51:52</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>651d92a0db1e3300254285184b961922</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Dev Env on AWS</sys_name>
+        <sys_package display_value="appTest" source="x_181622_apptest">e18088d2db203300254285184b9619b5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="appTest">e18088d2db203300254285184b9619b5</sys_scope>
+        <sys_update_name>sys_cb_topic_651d92a0db1e3300254285184b961922</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-06-24 12:01:27</sys_updated_on>
+        <variables/>
+    </sys_cb_topic>
+    <sys_variable_value action="delete_multiple" query="document_key=651d92a0db1e3300254285184b961922"/>
+</record_update>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_cat_item_catalog">
+    <sc_cat_item_catalog action="INSERT_OR_UPDATE">
+        <sc_cat_item display_value="EFS - App Deployment (Lower env to Higher env)">931c17fadb023300254285184b9619a8</sc_cat_item>
+        <sc_catalog display_value="ALMSmart Catalog">7ecaea99dbff2300254285184b961926</sc_catalog>
+        <sys_class_name>sc_cat_item_catalog</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-06-19 05:58:34</sys_created_on>
+        <sys_id>e54cdf3edb023300254285184b961956</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>ALMSmart Catalog.Application Promote</sys_name>
+        <sys_package display_value="appTest" source="x_181622_apptest">e18088d2db203300254285184b9619b5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="appTest">e18088d2db203300254285184b9619b5</sys_scope>
+        <sys_update_name>sc_cat_item_catalog_e54cdf3edb023300254285184b961956</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-06-19 05:58:34</sys_updated_on>
+    </sc_cat_item_catalog>
+</record_update>

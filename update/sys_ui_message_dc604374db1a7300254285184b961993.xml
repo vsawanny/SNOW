@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_message">
+    <sys_ui_message action="INSERT_OR_UPDATE">
+        <application>Virtual Agent</application>
+        <key>choose Environment</key>
+        <language>en</language>
+        <message>choose Environment</message>
+        <sys_class_name>sys_ui_message</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-06-25 09:04:32</sys_created_on>
+        <sys_id>dc604374db1a7300254285184b961993</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>choose Environment</sys_name>
+        <sys_package display_value="appTest" source="x_181622_apptest">e18088d2db203300254285184b9619b5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="appTest">e18088d2db203300254285184b9619b5</sys_scope>
+        <sys_update_name>sys_ui_message_dc604374db1a7300254285184b961993</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-06-25 09:04:32</sys_updated_on>
+    </sys_ui_message>
+</record_update>
